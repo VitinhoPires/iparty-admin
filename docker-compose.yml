@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  flaskapp:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - flask_db:/app/database  # onde seu banco está salvo
+    environment:
+      - FLASK_APP=app
+      - FLASK_ENV=development
+
+volumes:
+  flask_db:
